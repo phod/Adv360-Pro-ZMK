@@ -77,11 +77,11 @@
 
         keypad {
             bindings = <
-&none  &none             &none                            &none             &none                          &none          &none                                                    &none      &none         &none         &none         &none         &none         &none
-&none  &none             &kp LC(LEFT_ARROW)               &kp LC(UP_ARROW)  &kp LC(RIGHT_ARROW)            &none          &none                                                    &none      &none         &kp N7        &kp N8        &kp N9        &kp KP_MINUS  &kp SLASH
-&none  &kp LEFT_CONTROL  &hm LEFT_ALT LA(LG(LEFT_ARROW))  &kp LEFT_COMMAND  &hm LSHFT LA(LG(RIGHT_ARROW))  &kp G          &none     &kp LCTRL  &kp LALT      &kp LGUI   &kp RCTRL  &none      &kp NUMBER_0  &kp NUMBER_4  &kp N5        &kp NUMBER_6  &kp KP_PLUS   &kp ASTERISK
-&none  &none             &none                            &none             &none                          &double_shift                       &kp HOME      &kp PG_UP                        &kp PERIOD    &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp EQUAL     &none
-&none  &none             &none                            &none             &none                                         &kp BSPC  &kp DEL    &kp END       &kp PG_DN  &kp ENTER  &kp SPACE                &none         &none         &none         &none         &none
+&none  &none             &none                            &none             &none                          &none  &none                                                    &none      &none         &none         &none         &none         &none         &none
+&none  &none             &kp LC(LEFT_ARROW)               &kp LC(UP_ARROW)  &kp LC(RIGHT_ARROW)            &none  &none                                                    &none      &none         &kp N7        &kp N8        &kp N9        &kp KP_MINUS  &kp SLASH
+&none  &kp LEFT_CONTROL  &hm LEFT_ALT LA(LG(LEFT_ARROW))  &kp LEFT_COMMAND  &hm LSHFT LA(LG(RIGHT_ARROW))  &kp G  &none     &kp LCTRL  &kp LALT      &kp LGUI   &kp RCTRL  &none      &kp NUMBER_0  &kp NUMBER_4  &kp N5        &kp NUMBER_6  &kp KP_PLUS   &kp ASTERISK
+&none  &none             &none                            &none             &none                          &none                       &kp HOME      &kp PG_UP                        &kp PERIOD    &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp EQUAL     &none
+&none  &none             &none                            &none             &none                                 &kp BSPC  &kp DEL    &kp END       &kp PG_DN  &kp ENTER  &kp SPACE                &none         &none         &none         &none         &none
             >;
         };
 
