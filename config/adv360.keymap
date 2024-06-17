@@ -17,6 +17,13 @@
             bindings = <&kp RET>;
         };
 
+        double_shift: double_shift {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LEFT_SHIFT &kp LEFT_SHIFT>;
+            label = "DOUBLE_SHIFT";
+        };
+
         #endif
 
         hm: homerow_mods {
@@ -33,26 +40,48 @@
     macros {
     };
 
+    combos {
+        compatible = "zmk,combos";
+
+        wspace_left {
+            bindings = <&kp LC(LEFT_ARROW)>;
+            key-positions = <30 31>;
+            layers = <0>;
+        };
+
+        wspace_right {
+            bindings = <&kp LC(RIGHT)>;
+            key-positions = <31 32>;
+            layers = <0>;
+        };
+
+        overview {
+            bindings = <&kp LC(UP_ARROW)>;
+            key-positions = <30 31 32>;
+            layers = <0>;
+        };
+    };
+
     keymap {
         compatible = "zmk,keymap";
 
         default_layer {
             bindings = <
-&kp EQUAL  &kp N1       &kp N2          &kp N3              &kp N4            &kp N5  &tog 1                                                   &mo 3      &kp N6  &kp N7        &kp N8               &kp N9      &kp N0                       &kp MINUS
-&kp TAB    &kp Q        &kp W           &kp E               &kp R             &kp T   &none                                                    &none      &kp Y   &kp U         &kp I                &kp O       &kp P                        &kp BSLH
-&kp ESC    &hm LCTRL A  &hm LEFT_ALT S  &hm LEFT_COMMAND D  &hm LEFT_SHIFT F  &kp G   &none     &kp LCTRL  &kp LALT      &kp LGUI   &kp RCTRL  &none      &kp H   &hm RSHIFT J  &hm RIGHT_COMMAND K  &hm RALT L  &hm RIGHT_CONTROL SEMICOLON  &kp SQT
-&kp LSHFT  &kp Z        &kp X           &kp C               &kp V             &kp B                        &kp HOME      &kp PG_UP                        &kp N   &kp M         &kp COMMA            &kp DOT     &kp FSLH                     &kp RSHFT
-&mo 2      &kp GRAVE    &kp CAPS        &kp LEFT            &kp RIGHT                 &kp BSPC  &kp DEL    &kp END       &kp PG_DN  &kp ENTER  &kp SPACE          &kp UP        &kp DOWN             &kp LBKT    &kp RBKT                     &mo 2
+&kp EQUAL  &kp N1       &kp N2          &kp N3              &kp N4            &kp N5  &tog 1                                                            &mo 3        &kp N6  &kp N7        &kp N8               &kp N9      &kp N0                       &kp MINUS
+&kp TAB    &kp Q        &kp W           &kp E               &kp R             &kp T   &none                                                             &none        &kp Y   &kp U         &kp I                &kp O       &kp P                        &kp BSLH
+&kp ESC    &hm LCTRL A  &hm LEFT_ALT S  &hm LEFT_COMMAND D  &hm LEFT_SHIFT F  &kp G   &none            &kp LCTRL  &kp LALT      &kp LGUI   &kp RCTRL    &none        &kp H   &hm RSHIFT J  &hm RIGHT_COMMAND K  &hm RALT L  &hm RIGHT_CONTROL SEMICOLON  &kp SQT
+&kp LSHFT  &kp Z        &kp X           &kp C               &kp V             &kp B                               &kp HOME      &kp PG_UP                            &kp N   &kp M         &kp COMMA            &kp DOT     &kp FSLH                     &kp RSHFT
+&mo 2      &kp GRAVE    &kp CAPS        &kp LEFT            &kp RIGHT                 &lt 1 BACKSPACE  &kp TAB    &kp END       &kp PG_DN  &lt 5 ENTER  &lt 4 SPACE          &kp UP        &kp DOWN             &kp LBKT    &kp RBKT                     &tog 2
             >;
         };
 
         keypad {
             bindings = <
-&kp EQUAL  &kp N1     &kp N2    &kp N3    &kp N4     &kp N5  &trans                                                   &mo 3      &kp N6  &kp KP_NUM  &kp KP_EQUAL  &kp KP_DIVIDE  &kp KP_MULTIPLY  &kp MINUS
-&kp TAB    &kp Q      &kp W     &kp E     &kp R      &kp T   &none                                                    &none      &kp Y   &kp KP_N7   &kp KP_N8     &kp KP_N9      &kp KP_MINUS     &kp BSLH
-&kp ESC    &kp A      &kp S     &kp D     &kp F      &kp G   &none     &kp LCTRL  &kp LALT      &kp LGUI   &kp RCTRL  &none      &kp H   &kp KP_N4   &kp KP_N5     &kp KP_N6      &kp KP_PLUS      &kp SQT
-&kp LSHFT  &kp Z      &kp X     &kp C     &kp V      &kp B                        &kp HOME      &kp PG_UP                        &kp N   &kp KP_N1   &kp KP_N2     &kp KP_N3      &kp KP_ENTER     &kp RSHFT
-&mo 2      &kp GRAVE  &kp CAPS  &kp LEFT  &kp RIGHT          &kp BSPC  &kp DEL    &kp END       &kp PG_DN  &kp ENTER  &kp KP_N0          &kp UP      &kp DOWN      &kp KP_DOT     &kp RBKT         &mo 2
+&none  &none             &none                            &none             &none                          &none          &none                                                    &none      &none         &none         &none         &none         &none         &none
+&none  &none             &kp LC(LEFT_ARROW)               &kp LC(UP_ARROW)  &kp LC(RIGHT_ARROW)            &none          &none                                                    &none      &none         &kp N7        &kp N8        &kp N9        &kp KP_MINUS  &kp SLASH
+&none  &kp LEFT_CONTROL  &hm LEFT_ALT LA(LG(LEFT_ARROW))  &kp LEFT_COMMAND  &hm LSHFT LA(LG(RIGHT_ARROW))  &kp G          &none     &kp LCTRL  &kp LALT      &kp LGUI   &kp RCTRL  &none      &kp NUMBER_0  &kp NUMBER_4  &kp N5        &kp NUMBER_6  &kp KP_PLUS   &kp ASTERISK
+&none  &none             &none                            &none             &none                          &double_shift                       &kp HOME      &kp PG_UP                        &kp PERIOD    &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp EQUAL     &none
+&none  &none             &none                            &none             &none                                         &kp BSPC  &kp DEL    &kp END       &kp PG_DN  &kp ENTER  &kp SPACE                &none         &none         &none         &none         &none
             >;
         };
 
@@ -73,6 +102,26 @@
 &none  &none         &none         &none         &none         &none         &none        &none  &none      &bt BT_CLR  &none       &rgb_ug RGB_MEFS_CMD 5  &none  &none       &none       &none  &none  &none
 &none  &none         &none         &none         &macro_ver    &none                             &none      &none                                           &none  &none       &none       &none  &none  &none
 &none  &none         &none         &none         &none                       &none        &none  &none      &none       &bl BL_TOG  &rgb_ug RGB_TOG                &bl BL_INC  &bl BL_DEC  &none  &none  &none
+            >;
+        };
+
+        navigation {
+            bindings = <
+&trans  &trans     &trans        &kp LC(UP_ARROW)  &kp LA(LS(NUMBER_4))  &trans  &trans                                      &trans  &trans  &trans           &trans             &trans    &trans             &trans
+&trans  &trans     &kp LC(LEFT)  &kp UP_ARROW      &kp LC(RIGHT)         &trans  &trans                                      &trans  &trans  &trans           &trans             &trans    &trans             &trans
+&trans  &trans     &kp LEFT      &kp DOWN          &kp RIGHT             &trans  &trans  &trans  &trans      &trans  &trans  &trans  &trans  &kp RIGHT_SHIFT  &kp RIGHT_COMMAND  &kp RALT  &kp RIGHT_CONTROL  &trans
+&trans  &kp LA(Z)  &kp LA(X)     &kp LA(C)         &kp LA(V)             &trans                  &trans      &trans                  &trans  &trans           &trans             &trans    &trans             &trans
+&trans  &trans     &trans        &trans            &trans                        &trans  &trans  &trans      &trans  &trans  &trans          &trans           &trans             &trans    &trans             &trans
+            >;
+        };
+
+        symbols {
+            bindings = <
+&kp GRAVE  &trans           &trans            &trans                &trans                 &trans             &trans                                      &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans     &kp LESS_THAN    &kp GREATER_THAN  &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &kp SQT            &trans                                      &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans     &kp EXCLAMATION  &kp EQUAL         &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp DOUBLE_QUOTES  &trans  &trans  &trans      &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans     &kp AMPERSAND    &kp PIPE          &kp LEFT_BRACE        &kp RIGHT_BRACE        &kp GRAVE                          &trans      &trans                  &trans  &trans  &trans  &trans  &trans  &trans
+&trans     &trans           &trans            &trans                &trans                                    &trans  &trans  &trans      &trans  &trans  &trans          &trans  &trans  &trans  &trans  &trans
             >;
         };
     };
